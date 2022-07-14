@@ -1,9 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600&family=Courgette&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #e8e6df;
 }
 
 a {
@@ -13,4 +20,30 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.background {
+  background-image: url("../public/images/girlPic2.jpg");
+}
+
+.clip {
+  clip-path: polygon(0 0, 48% 0, 80% 60%, 11% 88%, 0 49%, 0 21%);
+  background-color: rgb(1120, 119, 117, 0.25);
+}
+
+.flexLayout {
+  flex: 1 0 21%;
+}
+
+@layer components {
+  .navHover {
+    @apply hover:text-secondaryColor transition-all;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .clip {
+    clip-path: polygon(0 0, 68% 0, 120% 50%, 5% 88%, 0 39%, 0 21%);
+    background-color: rgb(1120, 119, 117, 0.25);
+  }
 }
