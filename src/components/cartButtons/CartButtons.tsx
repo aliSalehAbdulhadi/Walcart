@@ -1,7 +1,7 @@
 import React from "react";
 import useStore from "../../context/updateCartStore/updateCartStore";
 
-const CartButtons = ({ id, quantity }: any) => {
+const CartButtons = ({ id, quantity }: { id: number; quantity: number }) => {
   const removeItem = useStore((state) => state.removeItem);
   const increaseQuantity = useStore((state) => state.increaseQuantity);
   const decreaseQuantity = useStore((state) => state.decreaseQuantity);
@@ -15,7 +15,7 @@ const CartButtons = ({ id, quantity }: any) => {
         >
           -
         </button>
-        <div className="mx-5 text-black">{quantity}</div>
+        <div className="mx-5 text-black w-5 text-center">{quantity}</div>
         <button
           onClick={() => increaseQuantity(id)}
           className="px-5 py-2 bg-secondaryColor rounded transition-all hover:bg-red-400"

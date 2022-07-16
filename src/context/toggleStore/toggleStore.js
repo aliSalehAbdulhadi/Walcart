@@ -1,8 +1,10 @@
 import create from "zustand";
 
 const toggleStore = (set) => ({
-  isOpen: false,
-  toggle: () => set((state) => ({ isOpen: !state.isOpen })),
+  isOpenCart: false,
+  isOpenNav: false,
+  toggleCart: (action) => set(() => ({ isOpenCart: action })),
+  toggleNav: (action) => set(() => ({ isOpenNav: action })),
 });
 
 export default create(toggleStore);
