@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { RatingStar } from "rating-star";
+import ReactTextCollapse from "react-text-collapse";
 import { formatCurrency } from "../../utilities/formatCurrency";
 import useStore from "../../context/updateCartStore/updateCartStore";
 import CartButtons from "../cartButtons/CartButtons";
-import ReactTextCollapse from "react-text-collapse";
 
 const StoreCard = ({ title, description, price, url, id, rating }: any) => {
   const { items } = useStore((state) => ({ items: state.cartItems }));
