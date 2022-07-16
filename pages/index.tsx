@@ -1,6 +1,5 @@
-import type { NextPage } from "next";
 import Head from "next/head";
-import Navbar from "../src/components/navbar/Navbar";
+import type { NextPage } from "next";
 import HomePage from "./HomePage";
 
 const Home: NextPage = () => {

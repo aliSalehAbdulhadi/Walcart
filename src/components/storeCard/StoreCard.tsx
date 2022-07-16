@@ -1,61 +1,66 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
+import { RatingStar } from "rating-star";
 import { formatCurrency } from "../../utilities/formatCurrency";
+import useStore from "../../context/updateCartStore/updateCartStore";
+import CartButtons from "../cartButtons/CartButtons";
+import ReactTextCollapse from "react-text-collapse";
 
-const StoreCard = ({ title, description, price, url, id }: any) => {
-  // const [cartItems, setCartItems] = useState<any>([]);
-  // const [quantity, setQuantity] = useState<any>([]);
+const StoreCard = ({ title, description, price, url, id, rating }: any) => {
+  const { items } = useStore((state) => ({ items: state.cartItems }));
+  const addItem = useStore((state) => state.addItem);
 
-  // const addToCart = () => {
-  //   cartItems.filter((item: string) => {
-  //     if (item === id) {
-  //       return setQuantity((prev: number[]) => [...prev, item]);
-  //     }
-  //   });
-  // };
+  const item: any = items.find((item: any) => item.id === id);
 
-  // const removeFromCart = () => {
-  //   cartItems.find((item: string) => {
-  //     if (item === id) {
-  //       return setQuantity((prev) =>
-  //         prev.find((item) => {
-  //           if (item === id) {
-  //             return prev.filter((item) => item !== id);
-  //           }
-  //         }),
-  //       );
-  //     }
-  //   });
-  // };
-
-  const test = true;
-
+  const TEXT_COLLAPSE_OPTIONS = {
+    collapse: false, // default state when component rendered
+    collapseText: "... show more", // text to show when collapsed
+    expandText: "show less", // text to show when expanded
+    minHeight: 50, // component height when closed
+    maxHeight: 150, // expanded to
+    textStyle: {
+      // pass the css for the collapseText and expandText here
+      color: "#ef4444",
+      fontSize: "15px",
+      cursor: "pointer",
+    },
+  };
   return (
     <div className="flex flex-col shadow-2xl min-h-[30rem] min-w-[10rem]  lg:min-w-[20rem]">
       <img className="h-[200px] object-cover" src={url} alt="card pic" />
       <div className="py-5 flex flex-col items-center justify-center">
-        <h1>{title}</h1>
-        <h2 className="py-5 mx-5">{description}</h2>
-        <span className="">{formatCurrency(price)}</span>
+        <h1 className="mx-5">{title}</h1>
+
+        <div className="mt-1">
+          <RatingStar maxScore={5} id="123" rating={rating.rate} />
+        </div>
+        <p className="self-start mx-5 mt-5 mb-1 opacity-60">Description:</p>
+        <div className="mb-5 mx-5">
+          <ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
+            {description}
+          </ReactTextCollapse>
+        </div>
+
+        <span className="opacity-60">
+          {formatCurrency(item?.quantity ? price * item?.quantity : price)}
+        </span>
       </div>
       <div className="h-full w-full flex items-end justify-center">
-        {test ? (
-          <div className="flex flex-col text-white w-full">
-            <div className="flex items-center justify-center mb-5">
-              <button className="px-5 py-2 bg-secondaryColor rounded transition-all hover:bg-red-400">
-                -
-              </button>
-              <div className="mx-5 text-black">5</div>
-              <button className="px-5 py-2 bg-secondaryColor rounded transition-all hover:bg-red-400">
-                +
-              </button>
-            </div>
-            <button className="py-2 bg-secondaryColor transition-all hover:bg-red-400">
-              Remove from cart
-            </button>
-          </div>
+        {items?.some((item: any) => item.id === id) ? (
+          <CartButtons id={id} quantity={item?.quantity} />
         ) : (
-          <button className="w-full py-5 bg-red-500 items-center justify-center transition-all hover:bg-red-400">
+          <button
+            onClick={() =>
+              addItem({
+                title: title,
+                price: price,
+                id: id,
+                url: url,
+                description: description,
+                quantity: 1,
+              })
+            }
+            className="w-full py-5 bg-red-500 items-center justify-center transition-all hover:bg-red-400 text-white"
+          >
             Add to cart
           </button>
         )}

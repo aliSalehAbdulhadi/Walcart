@@ -1,6 +1,6 @@
 import React from "react";
-import { NextPage } from "next";
 import Link from "next/link";
+import { NextPage } from "next";
 
 const HomePage: NextPage = () => {
   return (

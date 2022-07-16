@@ -15,6 +15,20 @@ module.exports = {
         Courgette: ["Courgette", "cursive"],
         Comfortaa: ["Comfortaa", "cursive"],
       },
+      keyframes: {
+        slideIn: {
+          "100%": {
+            transform: "translateY(-150px)",
+          },
+          "50%": {
+            transform: "translateY(25px)",
+          },
+
+          "0%": {
+            transform: "translateY(0px)",
+          },
+        },
+      },
     },
   },
   plugins: [],

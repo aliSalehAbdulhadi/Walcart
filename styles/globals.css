@@ -35,6 +35,15 @@ a {
   flex: 1 0 21%;
 }
 
+.scrollBar::-webkit-scrollbar {
+  width: 5px;
+  color: red;
+}
+
+.scrollBar::-webkit-scrollbar-thumb {
+  background: #d0cdcd;
+}
+
 @layer components {
   .navHover {
     @apply hover:text-secondaryColor transition-all;
