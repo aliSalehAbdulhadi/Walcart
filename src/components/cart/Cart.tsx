@@ -5,6 +5,7 @@ import useUpdateCartStore from "../../context/updateCartStore/updateCartStore";
 import useToggleStore from "../../context/toggleStore/toggleStore";
 import useStore from "../../context/updateCartStore/updateCartStore";
 import { formatCurrency } from "../../utilities/formatCurrency";
+import { itemsInterface } from "../../data/interfaces/interfaces";
 
 const Cart = () => {
   const { items } = useUpdateCartStore((state) => ({ items: state.cartItems }));
@@ -13,7 +14,9 @@ const Cart = () => {
   const clear = useStore((state) => state.clearCart);
 
   let total: number[] = [];
-  items?.map((item: any) => total.push(item?.price * item?.quantity));
+  items?.map((item: { price: number; quantity: number }) =>
+    total.push(item?.price * item?.quantity),
+  );
 
   return (
     <div
@@ -72,7 +75,12 @@ const Cart = () => {
               Total: {formatCurrency(total.reduce((a, b) => a + b, 0))}
             </span>
             <button
-              onClick={() => clear()}
+              onClick={() => {
+                clear(),
+                  setTimeout(() => {
+                    toggleCart(false);
+                  }, 500);
+              }}
               className="py-1 px-3 bg-secondaryColor text-white font-Comfortaa text-sm tracking-widest outline-none ml-10"
             >
               Clear Cart
@@ -84,7 +92,7 @@ const Cart = () => {
         onClick={() => {
           toggleCart(false), (document.body.style.overflow = "visible");
         }}
-        className="overflow-hidden bg-black w-full opacity-50"
+        className="overflow-hidden bg-black w-full opacity-50 "
       />
     </div>
   );

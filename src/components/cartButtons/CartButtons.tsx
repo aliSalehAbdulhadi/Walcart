@@ -7,7 +7,7 @@ const CartButtons = ({ id, quantity }: { id: number; quantity: number }) => {
   const decreaseQuantity = useStore((state) => state.decreaseQuantity);
 
   return (
-    <div className="flex flex-col text-white w-full">
+    <div className="flex flex-col text-white w-full select-none">
       <div className="flex items-center justify-center mb-5">
         <button
           onClick={() => decreaseQuantity(id)}

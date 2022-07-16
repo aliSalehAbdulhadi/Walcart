@@ -23,7 +23,7 @@ a {
 }
 
 .background {
-  background-image: url("../public/images/girlPic2.jpg");
+  background-image: url("/images/girlPic2.jpg");
 }
 
 .clip {
@@ -53,6 +53,13 @@ a {
 @media only screen and (max-width: 800px) {
   .clip {
     clip-path: polygon(0 0, 68% 0, 120% 50%, 5% 88%, 0 39%, 0 21%);
+    background-color: rgb(1120, 119, 117, 0.25);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .clip {
+    clip-path: polygon(0 0, 68% 0, 120% 80%, 5% 88%, 0 39%, 0 21%);
     background-color: rgb(1120, 119, 117, 0.25);
   }
 }
