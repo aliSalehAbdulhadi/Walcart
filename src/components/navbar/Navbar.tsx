@@ -53,7 +53,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-center md:justify-end w-[250px]">
+        <div className="flex flex-col md:flex-row items-center justify-center md:justify-end w-[250px]  cursor-pointer select-none">
           <div
             onClick={() => {
               (document.body.style.overflow = "hidden"), toggleCart(true);
@@ -61,7 +61,7 @@ const Navbar = () => {
             className="md:mr-5 mt-3 md:mt-0 navHover relative py-3 px-3 shadow-lg rounded-full"
           >
             <img
-              className="h-7 cursor-pointer"
+              className="h-6 opacity-90"
               src="svg/cart.svg"
               alt="cart icon"
               title="Shopping cart"

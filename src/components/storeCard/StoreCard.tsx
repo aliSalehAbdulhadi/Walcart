@@ -1,15 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 import { RatingStar } from "rating-star";
+import ReactTextCollapse from "react-text-collapse";
 import { formatCurrency } from "../../utilities/formatCurrency";
 import useStore from "../../context/updateCartStore/updateCartStore";
 import CartButtons from "../cartButtons/CartButtons";
-import ReactTextCollapse from "react-text-collapse";
+import { itemsInterface } from "../../data/interfaces/interfaces";
 
-const StoreCard = ({ title, description, price, url, id, rating }: any) => {
+const StoreCard = ({
+  title,
+  description,
+  price,
+  image,
+  id,
+  rating,
+}: itemsInterface) => {
   const { items } = useStore((state) => ({ items: state.cartItems }));
   const addItem = useStore((state) => state.addItem);
-
-  const item: any = items.find((item: any) => item.id === id);
+  const item: any = items.find((item: { id: number }) => item.id === id);
 
   const TEXT_COLLAPSE_OPTIONS = {
     collapse: false, // default state when component rendered
@@ -25,8 +32,12 @@ const StoreCard = ({ title, description, price, url, id, rating }: any) => {
     },
   };
   return (
-    <div className="flex flex-col shadow-2xl min-h-[30rem] min-w-[10rem]  lg:min-w-[20rem]">
-      <img className="h-[200px] object-cover" src={url} alt="card pic" />
+    <div className="flex flex-col shadow-2xl min-h-[30rem] min-w-[10rem]  lg:min-w-[20rem] bg-gray-100">
+      <img
+        className="h-[200px] object-cover select-none"
+        src={image}
+        alt="card pic"
+      />
       <div className="py-5 flex flex-col items-center justify-center">
         <h1 className="mx-5">{title}</h1>
 
@@ -45,7 +56,7 @@ const StoreCard = ({ title, description, price, url, id, rating }: any) => {
         </span>
       </div>
       <div className="h-full w-full flex items-end justify-center">
-        {items?.some((item: any) => item.id === id) ? (
+        {items?.some((item: { id: number }) => item.id === id) ? (
           <CartButtons id={id} quantity={item?.quantity} />
         ) : (
           <button
@@ -54,12 +65,12 @@ const StoreCard = ({ title, description, price, url, id, rating }: any) => {
                 title: title,
                 price: price,
                 id: id,
-                url: url,
+                url: image,
                 description: description,
                 quantity: 1,
               })
             }
-            className="w-full py-5 bg-red-500 items-center justify-center transition-all hover:bg-red-400 text-white"
+            className="w-full py-5 bg-red-500 items-center justify-center transition-all hover:bg-red-400 text-white select-none"
           >
             Add to cart
           </button>
