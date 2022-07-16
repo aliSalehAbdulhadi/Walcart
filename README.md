@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Walcart!
+<ul><b>Walcart</b> is a simple Shopping app</ul>
 
-## Getting Started
 
-First, run the development server:
+# Features
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<ul>
+ <li>Add items to shopping cart</li>
+ <li>Add single item or all items from shopping cart</li>
+ <li>Calculate total price depends on the quantity of the items you have in the shopping cart</li>
+ <li>Modify items in store and shopping cart</li>
+ <li>Responsive Design</li>
+</ul>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+ 
+ # Sample
+![walcartStore(1)](https://user-images.githubusercontent.com/97849626/179372854-4117d57a-e404-4957-8ead-abc86cbb3866.jpg)
+![walcartStore2](https://user-images.githubusercontent.com/97849626/179372855-e580a1b4-bf3c-478f-9a54-ab96b7868609.jpg)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+# Getting started
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<ul>
+ <li>An internet connection and you are good to go!</li>
+</ul>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+# Built with
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<ul>
+  <li>Typescript</li>
+  <li>Nextjs</li>
+  <li>Tailwindcss</li>
+  <li>Zustand</li>
+</ul>
+
+
+
+
+ 
+## Deployed on Vercel
+
+<b>Daily</b> is fully deployed on vercel. Follow this link: walcart-livid.vercel.app
