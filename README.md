@@ -7,7 +7,7 @@
 
 <ul>
  <li>Add items to shopping cart</li>
- <li>Add single item or all items from shopping cart</li>
+ <li>Remove single item or all items from shopping cart</li>
  <li>Items in the shopping cart are stored in the local storage</li>
  <li>Calculate total price depends on the quantity of the items you have in the shopping cart</li>
  <li>Modify items in store and shopping cart</li>
