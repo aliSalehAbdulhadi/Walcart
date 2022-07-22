@@ -51,9 +51,9 @@ const StoreCard = ({
           </ReactTextCollapse>
         </div>
 
-        <span className="opacity-60">
+        <h1 className="opacity-60">
           {formatCurrency(item?.quantity ? price * item?.quantity : price)}
-        </span>
+        </h1>
       </div>
       <div className="h-full w-full flex items-end justify-center">
         {items?.some((item: { id: number }) => item.id === id) ? (
