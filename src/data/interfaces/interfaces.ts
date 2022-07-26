@@ -6,4 +6,5 @@ export interface itemsInterface {
   image: string;
   quantity?: number;
   rating: { rate: number; count: number };
+  url?: string;
 }

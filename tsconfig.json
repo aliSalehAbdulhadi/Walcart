@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/About.js", "src/context/updateCartStore/store.js", "src/components/storeCard/StoreCard.tsx", "src/context/dataStore/dataStore.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/About.js", "src/context/updateCartStore/store.js", "src/components/storeCard/StoreCard.tsx", "src/context/dataStore/dataStore.js", "src/components/storeCard/__test__/storeCard.test.js"],
   "exclude": ["node_modules"]
 }
