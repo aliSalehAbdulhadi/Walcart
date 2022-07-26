@@ -5,7 +5,6 @@ import useUpdateCartStore from "../../context/updateCartStore/updateCartStore";
 import useToggleStore from "../../context/toggleStore/toggleStore";
 import useStore from "../../context/updateCartStore/updateCartStore";
 import { formatCurrency } from "../../utilities/formatCurrency";
-import { itemsInterface } from "../../data/interfaces/interfaces";
 
 const Cart = () => {
   const { items } = useUpdateCartStore((state) => ({ items: state.cartItems }));
@@ -20,6 +19,7 @@ const Cart = () => {
 
   return (
     <div
+      role="cartDiv"
       className={`flex w-full z-40 absolute top-0 min-h-[120vh]  scroll-m-40 ${
         isOpen ? "block" : "hidden"
       }`}
@@ -44,30 +44,38 @@ const Cart = () => {
             />
           </div>
         </div>
-        <div className="px-[1rem] overflow-y-scroll max-h-[700px] scrollBar shadow-inner ">
-          {items.map((item: any) => (
-            <div
-              key={item.id}
-              className="flex shadow-2xl min-h-[10rem] min-w-[25rem] my-5 items-center justify-center scale-[.85] "
-            >
-              <div className="w-[200px] h-[200px]">
-                <img
-                  className="ml-2 max-h-[200px] max-w-[150px] object-cover"
-                  src={item.url}
-                  alt="card pic"
-                />
-              </div>
-              <div className="flex flex-col mx-5 mb-1 w-[70%]">
-                <div className="py-5 flex flex-col items-center justify-center">
-                  <h1>{item?.title}</h1>
-                  <span className="opacity-60">
-                    {formatCurrency(item?.price * item.quantity)}
-                  </span>
+        <div className="px-[1rem] overflow-y-scroll max-h-[700px] scrollBar shadow-inner flex flex-col">
+          {items.length === 0 ? (
+            <h1 className=" text-secondaryColor font-Comfortaa mt-10 self-center font-bold">
+              No items in cart
+            </h1>
+          ) : (
+            items.map((item: any) => (
+              <div
+                key={item.id}
+                className="flex shadow-2xl min-h-[15rem] min-w-[25rem] my-5 items-center justify-center scale-[.85]"
+              >
+                <div className="w-[200px] h-[200px]">
+                  <img
+                    className="ml-2 max-h-[200px] max-w-[150px] object-cover"
+                    src={item.url}
+                    alt="card pic"
+                  />
                 </div>
-                <CartButtons id={item.id} quantity={item?.quantity} />
+                <div className="flex flex-col mx-5 mb-1 w-[70%]">
+                  <div className="py-5 flex flex-col items-center justify-center ">
+                    <h1>{item?.title}</h1>
+                    <span className="opacity-60">
+                      {formatCurrency(item?.price * item.quantity)}
+                    </span>
+                  </div>
+                  <div className="mb-10">
+                    <CartButtons id={item.id} quantity={item?.quantity} />
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
         {items.length > 0 ? (
           <div className="flex items-center justify-center mt-5">

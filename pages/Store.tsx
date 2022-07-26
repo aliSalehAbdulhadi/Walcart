@@ -2,7 +2,6 @@ import StoreCard from "../src/components/storeCard/StoreCard";
 import { itemsInterface } from "../src/data/interfaces/interfaces";
 
 const Store = ({ data }: { data: itemsInterface[] }) => {
-  console.log(data);
   return (
     <div className="py-10 flex items-center justify-center">
       <div className="px-[1rem] xl:px-[8rem] grid sm:grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 ">

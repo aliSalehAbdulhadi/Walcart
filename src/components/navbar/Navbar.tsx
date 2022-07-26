@@ -55,6 +55,7 @@ const Navbar = () => {
 
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-end w-[250px]  cursor-pointer select-none">
           <div
+            role="cartButton"
             onClick={() => {
               (document.body.style.overflow = "hidden"), toggleCart(true);
             }}
@@ -69,7 +70,7 @@ const Navbar = () => {
 
             {items.length > 0 ? (
               <div className="bg-red-500 py-1 px-2 rounded-full absolute text-center text-[.6rem] text-white opacity-90 left-[0px] top-8">
-                <span className="">{items.length}</span>
+                <h1 role="cartLength">{items.length}</h1>
               </div>
             ) : null}
           </div>
